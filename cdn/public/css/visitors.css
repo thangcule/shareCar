@@ -1,0 +1,50 @@
+.p-3 {
+    padding: 1rem 0;
+}
+
+.py-4 {
+    padding: 1rem 0;
+}
+
+.visitor {
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+    border: 1px solid beige;
+    background-color: rgba(222,235,224,0.21);
+    position: relative;
+}
+
+.visitor .status {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.visitor .status-accept {
+    background-color: green;
+}
+
+.visitor .status-waiting {
+    background-color: rgb(61, 61, 248);
+}
+
+.visitor .status-deny {
+    background-color: grey;
+}
+.panel--font-bold {
+    font-weight: bold;
+}
+
+.panel--font-bold .panel-footer {
+    background-color: orange;
+}
+
+.panel--border-warning {
+    border: 1px solid orange;
+    background-color: #fff7d5;
+}

@@ -1,0 +1,32 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 8080:80
+    depends_on:
+      - mysql-dev
+      - php
+    volumes:
+      - ./cdn:/cdn
+      - ./nginx/cdn.conf:/etc/nginx/conf.d/cdn.conf
+
+  php:
+    build:
+      context: ./php
+      dockerfile: php7.dockerfile
+    image: php:7-fpm-pdo
+    volumes:
+      - ./cdn:/cdn
+      - ./php/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /cdn
+
+  mysql-dev:
+    image: mysql:5.7
+    volumes:
+      - ./mysql/lib:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=laravel
+    ports:
+      - 3307:3306
